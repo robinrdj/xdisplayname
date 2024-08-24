@@ -24,11 +24,11 @@ function App() {
        <form onSubmit={handleSubmit}>
         <div>
         <label>First Name:</label>
-        <input type="text" onChange={handleFirstNameChange} required/>
+        <input type="text" onChange={handleFirstNameChange} value ={firstName} required/>
         </div>
         <div>
         <label>Last Name:</label>
-        <input type="text" onChange={handleLastNameChange} required/>
+        <input type="text" onChange={handleLastNameChange} value={lastName} required/>
         </div>
        <button type='submit'>Submit</button>
        </form>
