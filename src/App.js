@@ -33,7 +33,7 @@ function App() {
        <button type='submit'>Submit</button>
        </form>
 
-       <p>{isVisible &&  `Name:${firstName} ${lastName}`}</p>
+       <p>{isVisible &&  `Full Name:${firstName} ${lastName}`}</p>
     </div>
   );
 }
