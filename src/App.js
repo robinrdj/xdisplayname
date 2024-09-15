@@ -2,44 +2,39 @@ import './App.css';
 import {useState} from "react";
 
 function App() {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [isVisible,setIsVisible] = useState(false);
+  const [names, setName] = useState({
+    fname:"",
+    lname:""
+  });
   const [fullName, setFullName] = useState("");
 
   function handleSubmit(e){
     e.preventDefault();
-    setFullName(`Full Name:${firstName} ${lastName}`);
-    setIsVisible(true);
-    // setFirstName("");
-    // setLastName("");
+    setFullName(names.fname+" "+names.lname);
   }
   function handleFirstNameChange(e){
-     setFirstName(e.target.value);
-     setIsVisible(false);
+     setName((prev)=>({...prev,fname:e.target.value}));
      setFullName("");
   }
   function handleLastNameChange(e){
-    setLastName(e.target.value);
-    setIsVisible(false);
+    setName((prev)=>({...prev,lname:e.target.value}));
     setFullName("");
  }
   return (
     <div className="App">
-       <h3>Full Name Display</h3>
+       <h1>Full Name Display</h1>
        <form onSubmit={handleSubmit}>
         <div>
         <label>First Name:</label>
-        <input type="text" onChange={handleFirstNameChange} value ={firstName} required/>
+        <input type="text" onChange={handleFirstNameChange} value ={names.fname} name="fname" required/>
         </div>
         <div>
         <label>Last Name:</label>
-        <input type="text" onChange={handleLastNameChange} value={lastName} required/>
+        <input type="text" onChange={handleLastNameChange} value={names.lname} name="lname"required/>
         </div>
        <button type='submit'>Submit</button>
        </form>
-
-       <p>{isVisible &&  fullName}</p>
+       {fullName?<p>Full Name: {fullName}</p>:""}
     </div>
   );
 }
