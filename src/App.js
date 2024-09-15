@@ -11,8 +11,8 @@ function App() {
     e.preventDefault();
     setFullName(`Full Name:${firstName} ${lastName}`);
     setIsVisible(true);
-    setFirstName("");
-    setLastName("");
+    // setFirstName("");
+    // setLastName("");
   }
   function handleFirstNameChange(e){
      setFirstName(e.target.value);
